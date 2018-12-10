@@ -17,6 +17,6 @@
     </block>
   </view>
   <view class="usermotto">
-    <text class="user-motto">{{motto}}</text>
+    <button open-type="feedback">意见反馈</button>
   </view>
 </view>
