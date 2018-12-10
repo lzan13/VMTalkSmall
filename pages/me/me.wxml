@@ -1,0 +1,22 @@
+<!--pages/me/me.wxml-->
+<view class="container">
+  <view id="user-container">
+    <!-- 需要使用 button 来授权登录 -->
+    <block wx:if="{{!isLoadUser}}">
+      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
+      <text wx:else>请升级微信版本</text>
+    </block>
+    <block wx:else>
+      <view>
+        <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 经测试，使用<open-data>无法修改样式 -->
+        <!-- <open-data id="user-avatar" type="userAvatarUrl"></open-data> -->
+        <!-- <open-data id="user-name" type="userNickName"></open-data> -->
+        <image id="user-avatar" src="{{user.avatarUrl}}" mode="cover"></image>
+        <text id="user-name">{{user.nickName}}</text>
+      </view>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+</view>
