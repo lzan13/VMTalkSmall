@@ -3,20 +3,17 @@
   <view id="user-container">
     <!-- 需要使用 button 来授权登录 -->
     <block wx:if="{{!isLoadUser}}">
-      <button wx:if="{{canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
-      <text wx:else>请升级微信版本</text>
+      <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>
     </block>
     <block wx:else>
-      <view>
-        <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 经测试，使用<open-data>无法修改样式 -->
-        <!-- <open-data id="user-avatar" type="userAvatarUrl"></open-data> -->
-        <!-- <open-data id="user-name" type="userNickName"></open-data> -->
-        <image id="user-avatar" src="{{user.avatarUrl}}" mode="cover"></image>
-        <text id="user-name">{{user.nickName}}</text>
-      </view>
+      <!-- 如果只是展示用户头像昵称，可以使用 <open-data /> 组件 经测试，使用<open-data>无法修改样式 -->
+      <!-- <open-data id="user-avatar" type="userAvatarUrl"></open-data> -->
+      <!-- <open-data id="user-name" type="userNickName"></open-data> -->
+      <image id="user-avatar" src="{{user.avatarUrl}}"></image>
+      <text id="user-name">{{user.nickName}}</text>
     </block>
   </view>
-  <view class="usermotto">
-    <button open-type="feedback">意见反馈</button>
+  <view class="me-list">
+    <button open-type="feedback">等待你的提议</button>
   </view>
 </view>

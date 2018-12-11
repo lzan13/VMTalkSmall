@@ -1,5 +1,9 @@
 <!--index.wxml-->
 <view class="container">
+  <view>
+    <image wx:if="{{!isLoadUser}}" class="user-avatar" src=""></image>
+    <image wx:else class="user-avatar" src="{{user.avatarUrl}}"></image>
+  </view>
   <view class="motto">
     <text class="user-motto">{{motto}}</text>
   </view>

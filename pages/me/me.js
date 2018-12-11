@@ -8,8 +8,7 @@ Page({
    */
   data: {
     user: {},
-    isLoadUser: false,
-    canIUse: wx.canIUse('button.open-type.getUserInfo')
+    isLoadUser: false
   },
 
   /**
@@ -19,40 +18,18 @@ Page({
     if (app.common.user) {
       // 已经有用户信息直接使用
       this.setData({
-        user: app.common.user,
-        isLoadUser: true
+        isLoadUser: true,
+        user: app.common.user
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回，所以此处加入 callback 以防止这种情况
       app.userReadyCallback = res => {
         this.setData({
-          user: res.userInfo,
-          isLoadUser: true
+          isLoadUser: true,
+          user: res.userInfo
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.common.user = res.userInfo
-          this.setData({
-            user: res.userInfo,
-            isLoadUser: true
-          })
-        }
-      })
     }
-  },
-  /**
-   * 自定义方法，获取用户信息
-   */
-  getUserInfo: function(e) {
-    console.log(e)
-    app.common.userInfo = e.detail.userInfo
-    this.setData({
-      userInfo: e.detail.userInfo,
-      isLoadUser: true
-    })
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -101,5 +78,16 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  /**
+   * 自定义方法，获取用户信息
+   */
+  getUserInfo: function (e) {
+    console.log("手动获取授权的用户信息 "+e)
+    app.common.user = e.detail.userInfo
+    this.setData({
+      isLoadUser: true,
+      user: e.detail.userInfo
+    })
   }
 })
