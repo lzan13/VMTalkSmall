@@ -1,7 +1,0 @@
-<!--pages/talk/talk.wxml-->
-<view class="container">
-  <view class="motto-container">
-    <text class="motto-content">{{motto}}</text>
-  </view>
-</view>
-

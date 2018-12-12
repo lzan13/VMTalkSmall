@@ -1,5 +1,6 @@
 {
-  "window": {
-    "enablePullDownRefresh": false
-  }
+  "navigationStyle": "default",
+  "navigationBarBackgroundColor": "#333333",
+  "navigationBarTitleText": "我的",
+  "navigationBarTextStyle": "black"
 }

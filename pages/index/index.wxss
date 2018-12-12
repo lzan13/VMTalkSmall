@@ -1,4 +1,17 @@
 /**index.wxss**/
-.usermotto {
-  margin-top: 200px;
+
+.user-avatar {
+  position: absolute;
+  bottom: 24rpx;
+  right: 24rpx;
+  width: 36rpx;
+  height: 36rpx;
+  padding: 16rpx;
+  border-radius: 50%;
+  border: 1rpx solid #e0e0e0;
+  background: #e8e8e8;
+}
+
+.text-saying{
+  font-size: 24rpx;
 }
