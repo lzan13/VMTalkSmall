@@ -4,9 +4,11 @@
     "pages/me/me"
   ],
   "window": {
+    "backgroundColor": "#fff",
+    "navigationStyle": "custom",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "VMTalk",
-    "navigationBarTextStyle": "black"
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "VMTalk"
   },
   "networkTimeout": {
     "request": 10000,

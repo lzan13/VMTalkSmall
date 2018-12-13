@@ -32,11 +32,25 @@ App({
         }
       }
     })
+
+    /**
+     * 获取手机系统信息
+     */
+    wx.getSystemInfo({
+      success: res => {
+        //导航高度
+        this.common.navHeight = res.statusBarHeight + 48;
+      }, fail(err) {
+        console.log(err);
+      }
+    })
+
   },
   /**
    * 配置全局参数
    */
   common: {
-    user: null
+    navHeight: 72,
+    user: null,
   }
 })
