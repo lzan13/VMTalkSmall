@@ -1,0 +1,8 @@
+<!--commpents/nav/nav.wxml-->
+<view class="nav-container">
+  <view class="nav-statusbar"></view>
+  <view class="nav-toolbar">
+    <image class="nav-icon" src="../../../public/image/ic_avatar.svg" />
+    <text class="nav-title">Title</text>
+  </view>
+</view>

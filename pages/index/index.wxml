@@ -1,9 +1,13 @@
 <!--index.wxml-->
 <view class="container">
-  <nav></nav>
-  <view>
-    <image wx:if="{{!isLoadUser}}" class="user-avatar" src="../../public/image/ic_avatar.svg" bindtap="jumeMePage"></image>
-    <image wx:else class="user-avatar" src="{{user.avatarUrl}}" bindtap="jumeMePage"></image>
+  <view class="nav-container">
+    <nav></nav>
   </view>
-  <text class="text-saying">{{saying}}</text>
+  <view class="content-container">
+    <view>
+      <image wx:if="{{!isLoadUser}}" class="user-avatar" src="../../public/image/ic_avatar.svg" bindtap="jumeMePage"></image>
+      <image wx:else class="user-avatar" src="{{user.avatarUrl}}" bindtap="jumeMePage"></image>
+    </view>
+    <text class="text-saying">{{saying}}</text>
+  </view>
 </view>

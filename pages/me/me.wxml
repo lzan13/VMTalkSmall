@@ -1,6 +1,9 @@
 <!--pages/me/me.wxml-->
 <view class="container">
-  <view id="user-container">
+  <view class="nav-container">
+    <nav></nav>
+  </view>
+  <view class="content-container">
     <!-- 需要使用 button 来授权登录 -->
     <block wx:if="{{!isLoadUser}}">
       <button open-type="getUserInfo" bindgetuserinfo="getUserInfo">授权登录</button>

@@ -7,6 +7,6 @@
   "navigationBarTitleText": "首页",
   "navigationBarTextStyle": "black", 
   "usingComponents": {
-    "nav": "../../components/nav"
+    "nav": "../commpents/nav/nav"
   }
 }

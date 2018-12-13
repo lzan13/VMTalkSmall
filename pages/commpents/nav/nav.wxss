@@ -1,0 +1,23 @@
+/* commpents/nav/nav.wxss */
+
+.nav-container {
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  min-height: 144rpx;
+}
+.nav-statusbar{
+  height: 48rpx;
+  background: #d8d8d8;
+}
+.nav-toolbar{
+  height: 96rpx;
+  background: #e8e8e8;
+}
+.nav-icon{
+  width: 48rpx;
+  height: 48rpx;
+  padding: 24rpx;
+}
