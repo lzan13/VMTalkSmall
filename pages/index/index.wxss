@@ -1,23 +1,25 @@
 /**index.wxss**/
 
-.content-container{
-  background: darkolivegreen;
+.nav-container {
+  background: #e8e8e8;
 }
 
+.content-container {
+  background: #23a823;
+}
 
 .user-avatar {
   position: absolute;
-  bottom: 24rpx;
-  right: 24rpx;
-  width: 36rpx;
-  height: 36rpx;
-  padding: 16rpx;
+  bottom: 36rpx;
+  right: 36rpx;
+  width: 56rpx;
+  height: 56rpx;
   border-radius: 50%;
   border: 1rpx solid #e0e0e0;
   background: #e8e8e8;
 }
 
-.text-saying{
+.text-saying {
   margin-top: 200rpx;
   font-size: 24rpx;
 }

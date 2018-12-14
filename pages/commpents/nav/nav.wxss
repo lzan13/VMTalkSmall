@@ -1,5 +1,6 @@
 /* commpents/nav/nav.wxss */
 
+/* 顶部导航容器，包含状态栏部分 */
 .nav-container {
   display: flex;
   flex-direction: column;
@@ -8,16 +9,40 @@
   width: 100%;
   min-height: 144rpx;
 }
-.nav-statusbar{
+
+/* 状态栏 */
+.nav-statusbar {
   height: 48rpx;
-  background: #d8d8d8;
 }
-.nav-toolbar{
+
+/* 导航栏 */
+.nav-toolbar {
+  display: flex;
+  flex-direction: row;
   height: 96rpx;
-  background: #e8e8e8;
 }
-.nav-icon{
+
+/* 导航图标 */
+.nav-icon {
   width: 48rpx;
   height: 48rpx;
   padding: 24rpx;
+}
+
+.nav-icon:active {
+  background: #e8e8e8;
+}
+
+
+.nav-space{
+  width: 24rpx;
+  height: 96rpx;
+}
+/* 标题 */
+.nav-title {
+  height: 96rpx;
+  line-height: 96rpx;
+  font-size: 32rpx;
+  font-weight: bold;
+  color: #3c3c3c;
 }

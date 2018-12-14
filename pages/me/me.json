@@ -1,7 +1,7 @@
 {
   "backgroundColor": "#ffffff",
   "backgroundTextStyle": "dark",
-  "enablePullDownRefresh": true,
+  "enablePullDownRefresh": false,
   "navigationStyle": "custom",
   "navigationBarBackgroundColor": "#ffffff",
   "navigationBarTitleText": "我",

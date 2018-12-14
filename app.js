@@ -50,7 +50,6 @@ App({
    * 配置全局参数
    */
   common: {
-    navHeight: 72,
     user: null,
   }
 })

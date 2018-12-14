@@ -2,7 +2,8 @@
 <view class="nav-container">
   <view class="nav-statusbar"></view>
   <view class="nav-toolbar">
-    <image class="nav-icon" src="../../../public/image/ic_avatar.svg" />
-    <text class="nav-title">Title</text>
+    <image wx:if="{{enableBack}}" class="nav-icon" bindtap="_onBack" src="../../../public/image/ic_back.svg" />
+    <view wx:else class="nav-space"></view>
+    <text class="nav-title">{{navTitle}}</text>
   </view>
 </view>

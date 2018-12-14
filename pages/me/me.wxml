@@ -1,7 +1,7 @@
 <!--pages/me/me.wxml-->
 <view class="container">
   <view class="nav-container">
-    <nav></nav>
+    <nav enableBack="true" navTitle="个人中心"></nav>
   </view>
   <view class="content-container">
     <!-- 需要使用 button 来授权登录 -->
