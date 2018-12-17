@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp()
+const util = require('../../utils/util.js')
 
 Page({
 
@@ -10,7 +11,10 @@ Page({
   data: {
     user: {},
     isLoadUser: false,
-    saying: "慢慢来，一步一个脚印！"
+    talk: {
+      hitokoto: "慢慢来，一步一个脚印！",
+      from: "lzan13"
+    }
   },
 
   /**
@@ -66,7 +70,7 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
-
+    this.requestTalk();
   },
 
   /**
@@ -94,6 +98,7 @@ Page({
    * 请求一句话
    */
   requestTalk: function() {
+    let that = this;
     wx.request({
       url: 'https://v1.hitokoto.cn',
       data: {
@@ -105,7 +110,15 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
+        wx.stopPullDownRefresh();
         console.log(res.data)
+        res.data.from = util.formatStr("『 {from} 』", res.data);
+        that.setData({
+          talk: res.data
+        })
+      },
+      fail() {
+        wx.stopPullDownRefresh();
       }
     })
   }
