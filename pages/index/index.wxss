@@ -1,11 +1,22 @@
 /**index.wxss**/
 
-.nav-container {
-  background: #e8e8e8;
+.content-container {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
-.content-container {
-  background: #23a823;
+.saying-container {
+  display: block;
+  width: 100%;
+  height: 100%;
+  background: #23d468;
+}
+
+.control-container {
+  display: block;
+  width: 100%;
+  height: 100%;
 }
 
 .user-avatar {
