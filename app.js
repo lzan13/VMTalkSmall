@@ -1,4 +1,5 @@
 //app.js
+const vlog = require("./utils/vmlog.js");
 /**
  * 小程序入口，唯一的一个实例
  */
@@ -10,6 +11,21 @@ App({
     var logs = wx.getStorageSync('logs') || []
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
+
+    /**
+     * 获取手机系统信息
+     */
+    wx.getSystemInfo({
+      success: res => {
+        vlog.i(res);
+        //导航高度
+        this.common.navHeight = res.statusBarHeight + 48;
+        this.common.windowHeight = res.windowHeight;
+      },
+      fail(err) {
+        vlog.i(err);
+      }
+    })
 
     /**
      * 获取用户信息
@@ -33,23 +49,14 @@ App({
       }
     })
 
-    /**
-     * 获取手机系统信息
-     */
-    wx.getSystemInfo({
-      success: res => {
-        //导航高度
-        this.common.navHeight = res.statusBarHeight + 48;
-      }, fail(err) {
-        console.log(err);
-      }
-    })
-
   },
   /**
    * 配置全局参数
    */
   common: {
     user: null,
+    statusBarheight: 24,
+    navHeight: 72,
+    windowHeight: 0
   }
 })

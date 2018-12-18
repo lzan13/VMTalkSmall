@@ -1,4 +1,5 @@
 /* pages/me/me.wxss */
+
 page {
   height: 100%;
   display: flex;
@@ -10,13 +11,17 @@ page {
   flex-direction: column;
 }
 
+.nav-container {
+  background: dodgerblue;
+}
+
 .content-container {
   display: flex;
   flex-direction: column;
 }
 
-.test-color{
-  height: 100px;
-  line-height: 100px;
+.test-color {
+  height: 144rpx;
+  line-height: 144rpx;
   text-align: center;
 }

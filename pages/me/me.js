@@ -8,15 +8,28 @@ Page({
    */
   data: {
     user: {},
-    isLoadUser: false
+    isLoadUser: false,
+    navHeight:0,
+    scrollHeight: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
+    var that = this;
     const colors = this.generateColors(20);
-    this.setData({ colors });
+    this.setData({
+      navHeight: app.common.navHeight
+    });
+    wx.getSystemInfo({
+      success: function(res) {
+        that.setData({
+          scrollHeight: res.windowHeight,
+          colors
+        });
+      }
+    });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -67,11 +80,11 @@ Page({
 
   },
 
-  randomColor: function () {
+  randomColor: function() {
     return `rgba(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${(Math.random() * 0.3 + 0.2).toFixed(1)})`;
   },
 
-  generateColors: function (length) {
+  generateColors: function(length) {
     return new Array(length).fill(null).map(() => this.randomColor());
   },
 

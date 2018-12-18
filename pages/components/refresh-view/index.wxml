@@ -1,5 +1,5 @@
 <!--pages/components/refresh-view/index.wxml-->
-<scroll-view class="refresh-view" bindscroll="_onScroll" bindtouchend="_onTouchEnd">
+<scroll-view class="refresh-view" scroll-y="true" bindscrolltolower="_onScrollDown" bindscrolltoupper="_onScrollTop" bindscroll="_onScroll" bindtouchend="_onTouchEnd" style="height:{{scrollHeight}}rpx">
   <view class="refresh-container">
     <view class="refresh-icon"></view>
     <slot></slot>

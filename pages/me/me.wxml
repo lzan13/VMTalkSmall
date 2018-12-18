@@ -1,10 +1,10 @@
 <!--pages/me/me.wxml-->
 <view class="container">
-  <view class="nav-container">
+  <view class="nav-container" style="height:{{navHeight}}px">
     <nav enableBack="true" navTitle="个人中心"></nav>
   </view>
   <view class="content-container">
-    <refresh-view>
+    <refresh-view scrollHeight="{{scrollHeight}}">
       <block wx:for="{{colors}}" wx:for-index="index" wx:key="index">
         <view class="test-color" style="background: {{item}}">{{index + 1}}. {{item}}</view>
       </block>
