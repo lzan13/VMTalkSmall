@@ -1,4 +1,9 @@
 /* pages/me/me.wxss */
+page {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .container {
   display: flex;
@@ -6,22 +11,12 @@
 }
 
 .content-container {
-  width: 100%;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  padding: 16rpx;
 }
 
-#user-avatar {
-  width: 128rpx;
-  height: 128rpx;
-  margin-top: 36rpx;
-  border-radius: 50%;
-}
-
-#user-name {
-  margin: 16rpx;
-  align-items: center;
-  color: #aaa;
+.test-color{
+  height: 100px;
+  line-height: 100px;
+  text-align: center;
 }

@@ -1,0 +1,14 @@
+/* pages/components/refresh-view/index.wxss */
+
+.refresh-view {
+  width: 100%;
+  height: calc(100% + 48rpx);
+  background: cadetblue;
+}
+
+.refresh-icon {
+  position: fixed;
+  width: 256rpx;
+  height: 256rpx;
+  background: saddlebrown;
+}

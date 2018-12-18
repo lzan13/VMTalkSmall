@@ -1,4 +1,4 @@
-<!--commpents/nav/nav.wxml-->
+<!--components/nav/nav.wxml-->
 <view class="nav-container">
   <view class="nav-statusbar"></view>
   <view class="nav-toolbar">

@@ -70,6 +70,14 @@ Page({
    * 页面相关事件处理函数--监听用户下拉动作
    */
   onPullDownRefresh: function() {
+    if (this.data.isRefreshing || this.data.isLoadingMoreData) {
+      return
+    }
+    this.setData({
+      isRefreshing: true,
+      hasMoreData: true
+    })
+    // 数据请求
     this.requestTalk();
   },
 
@@ -114,7 +122,8 @@ Page({
         console.log(res.data)
         res.data.from = util.formatStr("『 {from} 』", res.data);
         that.setData({
-          talk: res.data
+          talk: res.data,
+          isRefreshing: false,
         })
       },
       fail() {

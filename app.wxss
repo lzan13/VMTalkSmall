@@ -1,5 +1,8 @@
 /**app.wxss**/
 
+/* 引用微信 weui 库 */
+@import "weui.wxss";
+
 .container {
   position: fixed;
   display: flex;

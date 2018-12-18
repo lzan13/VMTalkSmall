@@ -1,4 +1,5 @@
 <!--index.wxml-->
+
 <view class="container">
   <!-- 一句话 -->
   <view class="talk-container">
@@ -7,7 +8,7 @@
       <image class="talk-quote-top" src="../../public/image/ic_quote.svg" />
       <text class="talk-hitokoto">{{talk.hitokoto}}</text>
       <view class="talk-quote-bottom-container">
-      <image class="talk-quote-bottom" src="../../public/image/ic_quote.svg" />
+        <image class="talk-quote-bottom" src="../../public/image/ic_quote.svg" />
       </view>
       <view class="talk-decoration" />
     </view>

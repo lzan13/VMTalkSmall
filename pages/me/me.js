@@ -15,21 +15,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (app.common.user) {
-      // 已经有用户信息直接使用
-      this.setData({
-        isLoadUser: true,
-        user: app.common.user
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回，所以此处加入 callback 以防止这种情况
-      app.userReadyCallback = res => {
-        this.setData({
-          isLoadUser: true,
-          user: res.userInfo
-        })
-      }
-    }
+    const colors = this.generateColors(20);
+    this.setData({ colors });
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -79,15 +66,13 @@ Page({
   onShareAppMessage: function() {
 
   },
-  /**
-   * 自定义方法，获取用户信息
-   */
-  getUserInfo: function (e) {
-    console.log("手动获取授权的用户信息 "+e)
-    app.common.user = e.detail.userInfo
-    this.setData({
-      isLoadUser: true,
-      user: e.detail.userInfo
-    })
-  }
+
+  randomColor: function () {
+    return `rgba(${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${Math.floor(Math.random() * 256)},${(Math.random() * 0.3 + 0.2).toFixed(1)})`;
+  },
+
+  generateColors: function (length) {
+    return new Array(length).fill(null).map(() => this.randomColor());
+  },
+
 })

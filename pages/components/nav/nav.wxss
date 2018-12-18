@@ -1,4 +1,4 @@
-/* commpents/nav/nav.wxss */
+/* components/nav/nav.wxss */
 
 /* 顶部导航容器，包含状态栏部分 */
 .nav-container {

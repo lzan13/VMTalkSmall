@@ -1,4 +1,4 @@
-// commpents/nav/nav.js
+// components/nav/nav.js
 Component({
   /**
    * 组件的属性列表

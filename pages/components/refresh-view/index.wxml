@@ -1,0 +1,7 @@
+<!--pages/components/refresh-view/index.wxml-->
+<scroll-view class="refresh-view" bindscroll="_onScroll" bindtouchend="_onTouchEnd">
+  <view class="refresh-container">
+    <view class="refresh-icon"></view>
+    <slot></slot>
+  </view>
+</scroll-view>
