@@ -19,7 +19,8 @@ App({
       success: res => {
         vlog.i(res);
         //导航高度
-        this.common.navHeight = res.statusBarHeight + 48;
+        this.common.sbHeight = res.statusBarHeight;
+        this.common.navHeight = this.common.sbHeight + this.common.tbHeight;
         this.common.windowHeight = res.windowHeight;
       },
       fail(err) {
@@ -55,7 +56,8 @@ App({
    */
   common: {
     user: null,
-    statusBarheight: 24,
+    sbHeight: 24,
+    tbHeight: 48,
     navHeight: 72,
     windowHeight: 0
   }

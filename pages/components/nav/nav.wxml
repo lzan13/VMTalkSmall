@@ -1,9 +1,11 @@
 <!--components/nav/nav.wxml-->
 <view class="nav-container">
-  <view class="nav-statusbar"></view>
-  <view class="nav-toolbar">
-    <image wx:if="{{enableBack}}" class="nav-icon" bindtap="_onBack" src="../../../public/image/ic_back.svg" />
-    <view wx:else class="nav-space"></view>
-    <text class="nav-title">{{navTitle}}</text>
+  <view class="nav-statusbar" style="height:{{sbHeight}}px"></view>
+  <view class="nav-toolbar weui-flex">
+    <image class="nav-icon" wx:if="{{enableBack}}" bindtap="_onBack" src="../../../public/image/ic_back.svg" />
+    <view class="nav-space" wx:else></view>
+    <view class="weui-flex__item">
+      <view class="nav-title">{{navTitle}}</view>
+    </view>
   </view>
 </view>

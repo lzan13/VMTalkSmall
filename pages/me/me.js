@@ -9,23 +9,23 @@ Page({
   data: {
     user: {},
     isLoadUser: false,
-    navHeight:0,
-    scrollHeight: 0
+    sbHeight: 0,
+    navHeight: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    var that = this;
+    var self = this;
     const colors = this.generateColors(20);
     this.setData({
+      sbHeight: app.common.sbHeight,
       navHeight: app.common.navHeight
     });
     wx.getSystemInfo({
       success: function(res) {
-        that.setData({
-          scrollHeight: res.windowHeight,
+        self.setData({
           colors
         });
       }

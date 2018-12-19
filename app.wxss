@@ -3,10 +3,38 @@
 /* 引用微信 weui 库 */
 @import "weui.wxss";
 
-.container {
-  position: fixed;
+page {
   display: flex;
   flex-direction: column;
-  height: 100%;
-  width: 100%;
+  background-color: #f8f8f8;
+  font-size: 16px;
+  font-family: -apple-system-font, Helvetica Neue, Helvetica, sans-serif;
+}
+
+.page__bd {
+  padding: 16px;
+}
+
+.page__bd_spacing {
+  padding-left: 16px;
+  padding-right: 16px;
+}
+
+.page__ft {
+  padding-bottom: 16px;
+  text-align: center;
+}
+
+.page__title {
+  text-align: left;
+  font-size: 20px;
+  font-weight: 400;
+  color: #353535;
+}
+
+.page__desc {
+  margin-top: 8px;
+  text-align: left;
+  font-size: 14px;
+  color: #888;
 }

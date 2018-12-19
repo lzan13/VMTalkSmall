@@ -1,6 +1,6 @@
 <!--index.wxml-->
 
-<view class="container">
+<view class="page">
   <!-- 一句话 -->
   <view class="talk-container">
     <view class="talk-hitokoto-container">

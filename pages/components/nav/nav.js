@@ -4,6 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
+    sbHeight: {
+      type: Number,
+      value: 24
+    },
     enableBack: {
       type: Boolean,
       value: false
@@ -11,7 +15,7 @@ Component({
     navTitle: {
       type: String,
       value: "Nav Title"
-    }
+    },
   },
 
   /**

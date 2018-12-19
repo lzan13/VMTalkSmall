@@ -1,13 +1,13 @@
 <!--pages/me/me.wxml-->
-<view class="container">
-  <view class="nav-container" style="height:{{navHeight}}px">
-    <nav enableBack="true" navTitle="个人中心"></nav>
+<view>
+  <view style="height:{{navHeight}}px">
+    <nav enableBack="true" navTitle="个人中心个人中心个人中心个人中心个人中心个人中心" sbHeight="{{sbHeight}}"></nav>
   </view>
-  <view class="content-container">
-    <refresh-view scrollHeight="{{scrollHeight}}">
-      <block wx:for="{{colors}}" wx:for-index="index" wx:key="index">
+  <refresh-view>
+    <view>
+      <block wx:for="{{colors}}">
         <view class="test-color" style="background: {{item}}">{{index + 1}}. {{item}}</view>
       </block>
-    </refresh-view>
-  </view>
+    </view>
+  </refresh-view>
 </view>

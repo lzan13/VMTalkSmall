@@ -1,48 +1,50 @@
 /* components/nav/nav.wxss */
 
 /* 顶部导航容器，包含状态栏部分 */
+
 .nav-container {
+  position: fixed;
   display: flex;
   flex-direction: column;
-  position: fixed;
-  top: 0;
   width: 100%;
-  min-height: 144rpx;
-}
-
-/* 状态栏 */
-.nav-statusbar {
-  height: 24px;
+  background: #fff;
+  z-index: 999;
 }
 
 /* 导航栏 */
+
 .nav-toolbar {
   display: flex;
   flex-direction: row;
-  height: 40px;
 }
 
 /* 导航图标 */
+
 .nav-icon {
   width: 24px;
   height: 24px;
-  padding: 8px;
+  padding: 12px;
 }
 
 .nav-icon:active {
   background: #e8e8e8;
 }
 
-
-.nav-space{
+.nav-space {
   width: 8px;
-  height: 40px;
+  height: 48px;
 }
+
 /* 标题 */
+
 .nav-title {
-  height: 40px;
-  line-height: 40px;
-  font-size: 32rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 280px;
+  height: 48px;
+  line-height: 48px;
+  font-size: 16px;
   font-weight: bold;
   color: #3c3c3c;
 }
