@@ -21,7 +21,7 @@ App({
         //导航高度
         this.common.sbHeight = res.statusBarHeight;
         this.common.navHeight = this.common.sbHeight + this.common.tbHeight;
-        this.common.windowHeight = res.windowHeight;
+        this.common.wHeight = res.windowHeight;
       },
       fail(err) {
         vlog.i(err);
@@ -59,6 +59,6 @@ App({
     sbHeight: 24,
     tbHeight: 48,
     navHeight: 72,
-    windowHeight: 0
+    wHeight: 667, // 这个是以 375*667 为基准进行预设
   }
 })

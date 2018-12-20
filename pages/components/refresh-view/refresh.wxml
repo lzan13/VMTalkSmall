@@ -1,0 +1,12 @@
+<!--pages/components/refresh-view/index.wxml-->
+<scroll-view class="refresh-view" scroll-y="true" bindscroll="_onScroll" bindscrolltolower="_onScrollBottom" bindtouchstart="_onTouchStart" bindtouchend="_onTouchEnd" style="height:{{scrollHeight}}px">
+  <view class="refresh-view-top">
+    <image class="refresh-icon" style="top:{{pullHeight}}px" src="../../../public/image/ic_loading.svg" />
+  </view>
+  <view bindtouchmove="_onTouchMove">
+    <slot></slot>
+  </view>
+  <!-- <view class="refresh-icon-view" wx:if="{{isLoadMore}}"> -->
+  <!-- <image class="refresh-icon" src="../../../public/image/ic_loading.svg" /> -->
+  <!-- </view> -->
+</scroll-view>

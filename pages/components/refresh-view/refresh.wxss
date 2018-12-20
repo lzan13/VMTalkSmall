@@ -1,0 +1,21 @@
+/* pages/components/refresh-view/index.wxss */
+
+.refresh-view {
+  display: flex;
+  flex-direction: column;
+}
+
+.refresh-view-top {
+  position: fixed;
+  width: 100%;
+  text-align: center;
+  z-index: 888;
+}
+
+.refresh-icon {
+  position: relative;
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  background: #f8f8f8;
+}

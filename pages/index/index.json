@@ -9,6 +9,6 @@
   "navigationBarTextStyle": "black", 
   "usingComponents": {
     "nav": "../components/nav/nav",
-    "refresh-view": "../components/refresh-view/index"
+    "refresh-view": "../components/refresh-view/refresh"
   }
 }

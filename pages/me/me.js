@@ -11,6 +11,7 @@ Page({
     isLoadUser: false,
     sbHeight: 0,
     navHeight: 0,
+    scrollHeight: 0
   },
 
   /**
@@ -21,7 +22,8 @@ Page({
     const colors = this.generateColors(20);
     this.setData({
       sbHeight: app.common.sbHeight,
-      navHeight: app.common.navHeight
+      navHeight: app.common.navHeight,
+      scrollHeight: app.common.wHeight - app.common.navHeight
     });
     wx.getSystemInfo({
       success: function(res) {
