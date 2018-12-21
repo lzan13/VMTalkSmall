@@ -15,6 +15,13 @@ Component({
   properties: {
     scrollHeight: {
       type: Number
+    },
+    isRefreshFinish: {
+      type: Boolean,
+      value: true,
+      oberver: function(b) {
+        this._onRefreshFinish(b);
+      }
     }
   },
 
@@ -27,7 +34,7 @@ Component({
     isHasMore: false, // 是否有更多数据
     pullHeight: 0, // 拉动的高度
     pullStatus: 0, // 0-滚动到顶部 1-滚动到中间 2-滚动到底部
-    scrollTop: 0,
+    scrollTop: 0, // 滚动距离顶部的高度
   },
 
   /**
@@ -40,14 +47,25 @@ Component({
       });
     },
     /**
-     * 滑动中
+     * 滚动到顶部
      */
-    _onScroll: function(e) {
-      const top = e.detail.scrollTop;
-      vlog.i("滚动距离顶部 " + top);
+    _onScrollTop: function(e) {
+      vlog.i("滚动到顶部 ");
+      this.setData({
+        scrollTop: 0
+      })
     },
     /**
-     * 滑动到底部
+     * 滚动中
+     */
+    _onScroll: function(e) {
+      vlog.i("滚动距离顶部 " + e.detail.scrollTop);
+      this.setData({
+        scrollTop: e.detail.scrollTop
+      })
+    },
+    /**
+     * 滚动到底部
      */
     _onScrollBottom: function(e) {
       vlog.i("滚动到底部 ");
@@ -57,14 +75,34 @@ Component({
      */
     _onTouchStart: function(e) {
       vlog.i("触摸开始 ");
+      if (!this.canRefresh()) {
+        return;
+      }
+      this.firstData = {
+        y: e.touches[0].clientY,
+        top: this.data.scrollTop
+      };
     },
     /**
      * 触摸移动
      */
     _onTouchMove: function(e) {
-      vlog.i("触摸移动 ");
-      if (isRefresh || this.data.scrollTop > 0) {
+      if (!this.canRefresh() || this.data.scrollTop > 0) {
         return;
+      }
+      vlog.i("触摸移动 准备下拉刷新");
+      var distance = this.moveDistance(e.touches[0]);
+      if (distance > 0) {
+        var pullDistance = distance - this.firstData.top;
+        if (pullDistance < 0) {
+          pullDistance = 0;
+          this.firstData.top = distance;
+        } 
+        var height = this.easing(pullDistance);
+        this.setData({
+          pullStatus: height > 0 ? STATUS.pulling : STATUS.normal,
+          pullHeight: height
+        });
       }
     },
     /**
@@ -72,10 +110,51 @@ Component({
      */
     _onTouchEnd: function(e) {
       vlog.i("触摸结束 ");
-      if (isRefresh || this.data.scrollTop > 0) {
+      if (!this.canRefresh()) {
         return;
       }
     },
+    /**
+     * 刷新完成回调，重置状态
+     */
+    _onRefreshFinish: function(b) {
+      if (b) {
+        this.setData({
+          pullStatus: STATUS.finish
+        });
+        setTimeout(function() {
+          this.setData({
+            pullStatus: STATUS.normal,
+            pullHeight: 0
+          });
+        }, 1000);
+      }
+    },
 
+
+    /**
+     * 判断是否能够刷新
+     */
+    canRefresh: function() {
+      let status = this.data.pullStatus;
+      return [STATUS.refreshing, STATUS.loading].indexOf(status) < 0;
+    },
+    /**
+     * 计算距离
+     */
+    moveDistance: function(touch) {
+      return touch.clientY - this.firstData.y;
+    },
+
+    /**
+     * 
+     */
+    easing: function(distance) {
+      var t = distance;
+      var b = 0;
+      var d = 180;
+      var c = d / 2.5;
+      return c * Math.sin(t / d * (Math.PI / 2)) + b;
+    }
   }
 })
