@@ -1,12 +1,6 @@
 {
-  "backgroundColor": "#ffffff",
-  "backgroundTextStyle": "dark",
   "enablePullDownRefresh": false,
-  "enable":true,
   "navigationStyle": "custom",
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTitleText": "首页",
-  "navigationBarTextStyle": "black", 
   "usingComponents": {
     "nav": "../components/nav/nav",
     "refresh-view": "../components/refresh-view/refresh"

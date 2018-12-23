@@ -2,26 +2,24 @@
 
 <view class="page">
   <!-- 一句话 -->
-  <view class="talk-container">
-    <view class="talk-hitokoto-container">
-      <view class="talk-decoration" />
-      <image class="talk-quote-top" src="../../public/image/ic_quote.svg" />
-      <text class="talk-hitokoto">{{talk.hitokoto}}</text>
-      <view class="talk-quote-bottom-container">
-        <image class="talk-quote-bottom" src="../../public/image/ic_quote.svg" />
+  <refresh-view scrollHeight="{{scrollHeight}}" isRefreshFinish="{{isRefreshFinish}}" bindonRefresh="onRefresh">
+    <view class="talk-container">
+      <view class="talk-hitokoto-container">
+        <view class="talk-decoration" />
+        <image class="talk-quote-top" src="../../public/image/ic_quote.svg" />
+        <text class="talk-hitokoto">{{talk.hitokoto}}</text>
+        <view class="talk-quote-bottom-container">
+          <image class="talk-quote-bottom" src="../../public/image/ic_quote.svg" />
+        </view>
+        <view class="talk-decoration" />
       </view>
-      <view class="talk-decoration" />
+      <view class="talk-from-container">
+        <text class="talk-from">{{talk.from}}</text>
+      </view>
     </view>
-    <view class="talk-from-container">
-      <text class="talk-from">{{talk.from}}</text>
-    </view>
-  </view>
-
+  </refresh-view>
   <!-- 控制界面 -->
   <view class="control-container">
-    <view>
-      <image wx:if="{{!isLoadUser}}" class="user-avatar" src="../../public/image/ic_avatar.svg" bindtap="jumeMePage"></image>
-      <image wx:else class="user-avatar" src="{{user.avatarUrl}}" bindtap="jumeMePage"></image>
-    </view>
+    <image class="control-setting" src="../../public/image/ic_avatar.svg" bindtap="onSetting"></image>
   </view>
 </view>

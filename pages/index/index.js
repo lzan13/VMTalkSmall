@@ -1,16 +1,16 @@
 //index.js
 //获取应用实例
-const app = getApp()
-const util = require('../../utils/util.js')
+const app = getApp();
+const util = require('../../utils/util.js');
+const vlog = require('../../utils/vmlog.js');
 
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    user: {},
-    isLoadUser: false,
+    scrollHeight: 0,
+    isRefreshFinish: false,
     talk: {
       hitokoto: "慢慢来，一步一个脚印！",
       from: "lzan13"
@@ -21,21 +21,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    if (app.common.user) {
-      // 已经有用户信息直接使用
-      this.setData({
-        isLoadUser: true,
-        user: app.common.user
-      })
-    } else if (this.data.canIUse) {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回，所以此处加入 callback 以防止这种情况
-      app.userReadyCallback = res => {
-        this.setData({
-          isLoadUser: true,
-          user: res.userInfo
-        })
-      }
-    }
+    this.setData({
+      scrollHeight: app.common.wHeight - app.common.navHeight
+    })
+
   },
 
   /**
@@ -67,37 +56,28 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-    if (this.data.isRefreshing || this.data.isLoadingMoreData) {
-      return
-    }
-    this.setData({
-      isRefreshing: true,
-      hasMoreData: true
-    })
-    // 数据请求
-    this.requestTalk();
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
 
   },
+
   /**
-   * 跳转到个人中心
+   * 触发下拉刷新
    */
-  jumeMePage: function() {
+  onRefresh: function() {
+    vlog.i("触发下拉刷新");
+    this.setData({
+      isRefreshFinish: false
+    });
+    // 模拟请求
+    this.requestTalk();
+  },
+
+  /**
+   * 跳转到设置界面
+   */
+  onSetting: function() {
     wx.navigateTo({
       url: '../me/me'
     })
@@ -106,7 +86,7 @@ Page({
    * 请求一句话
    */
   requestTalk: function() {
-    let that = this;
+    let self = this;
     wx.request({
       url: 'https://v1.hitokoto.cn',
       data: {
@@ -118,17 +98,17 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        wx.stopPullDownRefresh();
-        console.log(res.data)
         res.data.from = util.formatStr("『 {from} 』", res.data);
-        that.setData({
+        self.setData({
           talk: res.data,
-          isRefreshing: false,
+          isRefreshFinish: true
         })
       },
       fail() {
-        wx.stopPullDownRefresh();
+        self.setData({
+          isRefreshFinish: true
+        })
       }
     })
-  }
+  },
 })

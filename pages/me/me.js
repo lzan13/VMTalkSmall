@@ -1,6 +1,7 @@
 // pages/me/me.js
 //获取应用实例
-const app = getApp()
+const app = getApp();
+const vlog = require("../../utils/vmlog.js");
 
 Page({
   /**
@@ -11,7 +12,8 @@ Page({
     isLoadUser: false,
     sbHeight: 0,
     navHeight: 0,
-    scrollHeight: 0
+    scrollHeight: 0,
+    isRefreshFinish: false
   },
 
   /**
@@ -62,20 +64,6 @@ Page({
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function() {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function() {
-
-  },
-
-  /**
    * 用户点击右上角分享
    */
   onShareAppMessage: function() {
@@ -89,5 +77,22 @@ Page({
   generateColors: function(length) {
     return new Array(length).fill(null).map(() => this.randomColor());
   },
+
+  /**
+   * 触发下拉刷新
+   */
+  _onRefresh: function() {
+    vlog.i("触发下拉刷新");
+    this.setData({
+      isRefreshFinish: false
+    });
+    // 模拟请求
+    setTimeout(() => {
+      vlog.i("下拉刷新模拟完成");
+      this.setData({
+        isRefreshFinish: true
+      });
+    }, 1000);
+  }
 
 })

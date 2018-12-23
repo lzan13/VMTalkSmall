@@ -19,7 +19,7 @@ Component({
     isRefreshFinish: {
       type: Boolean,
       value: true,
-      oberver: function(b) {
+      observer: function(b) {
         this._onRefreshFinish(b);
       }
     }
@@ -97,7 +97,7 @@ Component({
         if (pullDistance < 0) {
           pullDistance = 0;
           this.firstData.top = distance;
-        } 
+        }
         var height = this.easing(pullDistance);
         this.setData({
           pullStatus: height > 0 ? STATUS.pulling : STATUS.normal,
@@ -113,21 +113,30 @@ Component({
       if (!this.canRefresh()) {
         return;
       }
+      vlog.i("下拉高度 " + this.data.pullHeight)
+      if (this.data.pullHeight > 50) {
+        this.triggerEvent("onRefresh");
+      } else {
+        this.setData({
+          pullHeight: 0
+        });
+      }
     },
     /**
      * 刷新完成回调，重置状态
      */
     _onRefreshFinish: function(b) {
+      vlog.i("刷新完成 " + b);
       if (b) {
         this.setData({
           pullStatus: STATUS.finish
         });
-        setTimeout(function() {
+        setTimeout(() => {
           this.setData({
             pullStatus: STATUS.normal,
             pullHeight: 0
           });
-        }, 1000);
+        }, 50);
       }
     },
 
@@ -147,7 +156,7 @@ Component({
     },
 
     /**
-     * 
+     * 计算下拉高度
      */
     easing: function(distance) {
       var t = distance;
