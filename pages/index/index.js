@@ -79,7 +79,7 @@ Page({
    */
   onSetting: function() {
     wx.navigateTo({
-      url: '../me/me'
+      url: '../setting/setting'
     })
   },
   /**
