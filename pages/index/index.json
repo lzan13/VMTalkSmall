@@ -3,6 +3,6 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "nav": "../components/nav/nav",
-    "refresh-view": "../components/refresh-view/refresh"
+    "refresh": "../components/refresh/refresh"
   }
 }

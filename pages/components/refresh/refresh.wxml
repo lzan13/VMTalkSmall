@@ -1,15 +1,11 @@
-<!--pages/components/refresh-view/index.wxml-->
+<!--pages/components/refresh/refresh.wxml-->
 <scroll-view class="refresh-view" scroll-y="true" bindscrolltoupper="_onScrollTop" bindscroll="_onScroll" bindscrolltolower="_onScrollBottom" bindtouchstart="_onTouchStart" bindtouchend="_onTouchEnd" style="height:{{scrollHeight}}px">
   <view class="refresh-view-top">
     <view class="refresh-status refresh-{{pullStatus}}" style="top:{{pullHeight}}px">
-      <!-- <image class="refresh-icon" src="../../../public/image/ic_loading.svg" /> -->
       <view class="refresh-icon"></view>
     </view>
   </view>
   <view bindtouchmove="_onTouchMove">
     <slot></slot>
   </view>
-  <!-- <view class="refresh-icon-view" wx:if="{{isLoadMore}}"> -->
-  <!-- <image class="refresh-icon" src="../../../public/image/ic_loading.svg" /> -->
-  <!-- </view> -->
 </scroll-view>

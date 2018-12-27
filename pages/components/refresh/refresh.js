@@ -1,4 +1,4 @@
-// pages/components/refresh-view/index.js
+// pages/components/refresh/refresh.js
 const vlog = require("../../../utils/vmlog.js");
 
 const STATUS = {
@@ -32,8 +32,8 @@ Component({
     isRefresh: false, // 判断是否刷新中
     isLoadMore: false, // 判断是否正在加载更多
     isHasMore: false, // 是否有更多数据
-    pullHeight: 60, // 拉动的高度
-    pullStatus: STATUS.refreshing, // 参见 {@link STATUS}
+    pullHeight: 0, // 拉动的高度
+    pullStatus: STATUS.normal, // 参见 {@link STATUS}
     scrollTop: 0, // 滚动距离顶部的高度
   },
 
@@ -51,7 +51,6 @@ Component({
      * 滚动到顶部
      */
     _onScrollTop: function(e) {
-      vlog.i("滚动到顶部 ");
       this.setData({
         scrollTop: 0
       })
@@ -60,7 +59,6 @@ Component({
      * 滚动中
      */
     _onScroll: function(e) {
-      vlog.i("滚动距离顶部 " + e.detail.scrollTop);
       this.setData({
         scrollTop: e.detail.scrollTop
       })
@@ -69,13 +67,11 @@ Component({
      * 滚动到底部
      */
     _onScrollBottom: function(e) {
-      vlog.i("滚动到底部 ");
     },
     /**
      * 触摸开始
      */
     _onTouchStart: function(e) {
-      vlog.i("触摸开始 ");
       if (!this.canRefresh()) {
         return;
       }
@@ -91,7 +87,6 @@ Component({
       if (!this.canRefresh() || this.data.scrollTop > 0) {
         return;
       }
-      vlog.i("触摸移动 准备下拉刷新");
       var distance = this.moveDistance(e.touches[0]);
       if (distance > 0) {
         var pullDistance = distance - this.firstData.top;
@@ -100,7 +95,6 @@ Component({
           this.firstData.top = distance;
         }
         var height = this.easing(e.touches[0], pullDistance);
-        vlog.i("下拉高度 " + pullDistance + ", " + height);
         this.setData({
           pullStatus: height > 0 ? STATUS.pulling : STATUS.normal,
           pullHeight: height,
@@ -111,14 +105,13 @@ Component({
      * 触摸结束
      */
     _onTouchEnd: function(e) {
-      vlog.i("触摸结束 ");
       if (!this.canRefresh()) {
         return;
       }
-      if (this.data.pullHeight > 60) {
+      if (this.data.pullHeight > 50) {
         this.setData({
           pullStatus: STATUS.refreshing,
-          pullHeight: 60,
+          pullHeight: 50,
         })
         this.triggerEvent("onRefresh");
       } else {
@@ -132,7 +125,6 @@ Component({
      * 刷新完成回调，重置状态
      */
     _onRefreshFinish: function(b) {
-      vlog.i("刷新完成 " + b);
       if (b) {
         this.setData({
           pullStatus: STATUS.finish

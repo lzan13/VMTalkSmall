@@ -1,9 +1,9 @@
 <!--pages/me/me.wxml-->
 <view class="page">
-  <view class="page__hd" style="height:{{navHeight}}px">
-    <nav enableBack="true" navTitle="个人中心个人中心个人中心个人中心个人中心个人中心" sbHeight="{{sbHeight}}"></nav>
+  <view style="height:{{navHeight}}px">
+    <nav enableBack="true" navTitle="设置" sbHeight="{{sbHeight}}"></nav>
   </view>
-  <refresh-view scrollHeight="{{scrollHeight}}" isRefreshFinish="{{isRefreshFinish}}" bindonRefresh="_onRefresh">
+  <refresh-view scrollHeight="{{scrollHeight}}" isRefreshFinish="{{isRefreshFinish}}" bindonRefresh="onRefresh">
       <block wx:for="{{colors}}" wx:for-index="index" wx:key="index">
         <view class="test-color" style="background: {{item}}">{{index + 1}}. {{item}}</view>
       </block>

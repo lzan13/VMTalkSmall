@@ -1,13 +1,7 @@
 {
-  "backgroundColor": "#ffffff",
-  "backgroundTextStyle": "dark",
   "enablePullDownRefresh": false,
   "navigationStyle": "custom",
-  "navigationBarBackgroundColor": "#ffffff",
-  "navigationBarTitleText": "我",
-  "navigationBarTextStyle": "black",
   "usingComponents": {
-    "nav": "../components/nav/nav",
-    "refresh-view": "../components/refresh-view/refresh"
+    "nav": "../components/nav/nav"
   }
 }

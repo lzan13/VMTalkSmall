@@ -70,7 +70,7 @@ Page({
     this.setData({
       isRefreshFinish: false
     });
-    // 模拟请求
+    // 请求数据
     this.requestTalk();
   },
 
@@ -98,13 +98,11 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        setTimeout(() => {
-          res.data.from = util.formatStr("『 {from} 』", res.data);
-          self.setData({
-            talk: res.data,
-            isRefreshFinish: true
-          })
-        }, 1500);
+        res.data.from = util.formatStr("『 {from} 』", res.data);
+        self.setData({
+          talk: res.data,
+          isRefreshFinish: true
+        })
       },
       fail() {
         self.setData({

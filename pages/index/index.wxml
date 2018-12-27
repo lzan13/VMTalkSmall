@@ -2,7 +2,7 @@
 
 <view class="page">
   <!-- 一句话 -->
-  <refresh-view scrollHeight="{{scrollHeight}}" isRefreshFinish="{{isRefreshFinish}}" bindonRefresh="onRefresh">
+  <refresh scrollHeight="{{scrollHeight}}" isRefreshFinish="{{isRefreshFinish}}" bindonRefresh="onRefresh">
     <view class="talk-container">
       <view class="talk-hitokoto-container">
         <view class="talk-decoration" />
@@ -17,7 +17,7 @@
         <text class="talk-from">{{talk.from}}</text>
       </view>
     </view>
-  </refresh-view>
+  </refresh>
   <!-- 控制界面 -->
   <view class="control-container">
     <image class="control-setting" src="../../public/image/ic_avatar.svg" bindtap="onSetting"></image>
