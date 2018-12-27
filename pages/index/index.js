@@ -98,11 +98,13 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        res.data.from = util.formatStr("『 {from} 』", res.data);
-        self.setData({
-          talk: res.data,
-          isRefreshFinish: true
-        })
+        setTimeout(() => {
+          res.data.from = util.formatStr("『 {from} 』", res.data);
+          self.setData({
+            talk: res.data,
+            isRefreshFinish: true
+          })
+        }, 2000);
       },
       fail() {
         self.setData({

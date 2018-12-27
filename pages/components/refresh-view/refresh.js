@@ -33,7 +33,7 @@ Component({
     isLoadMore: false, // 判断是否正在加载更多
     isHasMore: false, // 是否有更多数据
     pullHeight: 0, // 拉动的高度
-    pullStatus: 0, // 0-滚动到顶部 1-滚动到中间 2-滚动到底部
+    pullStatus: STATUS.normal, // 参见 {@link STATUS}
     scrollTop: 0, // 滚动距离顶部的高度
   },
 
@@ -43,7 +43,8 @@ Component({
   methods: {
     ready: function() {
       this.setData({
-        pullStatus: STATUS.normal
+        pullStatus: STATUS.normal,
+        pullHeight: 0,
       });
     },
     /**
@@ -79,8 +80,8 @@ Component({
         return;
       }
       this.firstData = {
+        top: this.data.scrollTop,
         y: e.touches[0].clientY,
-        top: this.data.scrollTop
       };
     },
     /**
@@ -98,10 +99,11 @@ Component({
           pullDistance = 0;
           this.firstData.top = distance;
         }
-        var height = this.easing(pullDistance);
+        var height = this.easing(e.touches[0], pullDistance);
+        vlog.i("下拉高度 " + pullDistance + ", " + height);
         this.setData({
           pullStatus: height > 0 ? STATUS.pulling : STATUS.normal,
-          pullHeight: height
+          pullHeight: height,
         });
       }
     },
@@ -113,12 +115,16 @@ Component({
       if (!this.canRefresh()) {
         return;
       }
-      vlog.i("下拉高度 " + this.data.pullHeight)
-      if (this.data.pullHeight > 50) {
+      if (this.data.pullHeight > 60) {
+        this.setData({
+          pullStatus: STATUS.refreshing,
+          pullHeight: 60,
+        })
         this.triggerEvent("onRefresh");
       } else {
         this.setData({
-          pullHeight: 0
+          pullStatus: STATUS.normal,
+          pullHeight: 0,
         });
       }
     },
@@ -134,9 +140,9 @@ Component({
         setTimeout(() => {
           this.setData({
             pullStatus: STATUS.normal,
-            pullHeight: 0
+            pullHeight: 0,
           });
-        }, 50);
+        }, 1000);
       }
     },
 
@@ -158,12 +164,9 @@ Component({
     /**
      * 计算下拉高度
      */
-    easing: function(distance) {
-      var t = distance;
-      var b = 0;
-      var d = 180;
-      var c = d / 2.5;
-      return c * Math.sin(t / d * (Math.PI / 2)) + b;
+    easing: function(y, distance) {
+      distance = distance > 280 ? 280 : distance;
+      return Math.exp(-distance / 280) * distance;
     }
   }
 })

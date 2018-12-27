@@ -13,11 +13,43 @@
 }
 
 .refresh-icon {
+  display: inline-block;
   position: relative;
+  width: 0px;
+  height: 0px;
+  padding: 0px;
+  background: #f8f8f8;
+  border-radius: 50%;
+}
+
+.refresh-icon-normal {
+  width: 0px;
+  height: 0px;
+  padding: 0px;
+}
+
+.refresh-icon-pulling {
   width: 24px;
   height: 24px;
   padding: 8px;
   background: #f8f8f8;
   border-radius: 50%;
-  box-shadow: 0px 5px 15px #a8a8a8;
+  box-shadow: 0px 0px 15px #a8a8a8;
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABzUlEQVRIS7XVS6hNcRTH8c8liYlHFBMDj4EoLpkoRpSJkgkyYCRFSilSHpHMFDKQEikGiqERGTDRlcKAhDKSR54jebVu66/dzj7ndM6+/+Hea/2+//96DhnjM9SgPxencRMXazbzMAcL8Bz38bPpnv8DLMNtTE2nhXjWILAJ+xN0GC/qdnXAStzBxDT8hHjN5w6RHIez2I6duFK1rQIm4SVm43c6HcK3HtN0AgexAxeKTxVwFEfwAevwsEfhqtklbMNunIsfBRC3foNfWI0HfYiHy4zMxxRELh8XQNw8XrAnQ9On/qjbSRzIQllTACOYjKX4MYg65leqaTgA41N0L84MKF7cP2J6vCYAEbf3WY6vWwJERJZjJACzspFKY7XBiCJZga8BmIBHWNyGcmrcylJ/W5J8AxtbBESiN+NyARzPJosObvUUwJIcD09aVa90cuhGDp6OJSD6IUbFoCeq8d/0bVo4/UJiBkUkYgmNnk6AYbzClx5p03KWHcOfboDzOdffYR+udghf9NEubMD6+v5oesG1rONykdgRMd/v5ocIxSJE9a3NkGzB9/prmwAzcQpbu4Txeg7Ie01h7Jbk+L8KZYEU+9h2UdJdh+NfkVpTj5rC194AAAAASUVORK5CYII=) no-repeat center;
+}
+
+.refresh-icon-refreshing {
+  width: 24px;
+  height: 24px;
+  padding: 8px;
+  background: #f8f8f8;
+  border-radius: 50%;
+  box-shadow: 0px 0px 15px #a8a8a8;
+  -webkit-animation: weuiLoading 1s steps(12, end) infinite;
+  animation: weuiLoading 1s steps(12, end) infinite;
+  background: transparent url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABzUlEQVRIS7XVS6hNcRTH8c8liYlHFBMDj4EoLpkoRpSJkgkyYCRFSilSHpHMFDKQEikGiqERGTDRlcKAhDKSR54jebVu66/dzj7ndM6+/+Hea/2+//96DhnjM9SgPxencRMXazbzMAcL8Bz38bPpnv8DLMNtTE2nhXjWILAJ+xN0GC/qdnXAStzBxDT8hHjN5w6RHIez2I6duFK1rQIm4SVm43c6HcK3HtN0AgexAxeKTxVwFEfwAevwsEfhqtklbMNunIsfBRC3foNfWI0HfYiHy4zMxxRELh8XQNw8XrAnQ9On/qjbSRzIQllTACOYjKX4MYg65leqaTgA41N0L84MKF7cP2J6vCYAEbf3WY6vWwJERJZjJACzspFKY7XBiCJZga8BmIBHWNyGcmrcylJ/W5J8AxtbBESiN+NyARzPJosObvUUwJIcD09aVa90cuhGDp6OJSD6IUbFoCeq8d/0bVo4/UJiBkUkYgmNnk6AYbzClx5p03KWHcOfboDzOdffYR+udghf9NEubMD6+v5oesG1rONykdgRMd/v5ocIxSJE9a3NkGzB9/prmwAzcQpbu4Txeg7Ie01h7Jbk+L8KZYEU+9h2UdJdh+NfkVpTj5rC194AAAAASUVORK5CYII=) no-repeat center;
+}
+
+.refresh-icon-finish {
+  transition: transform 1.5s ease;
 }
