@@ -32,8 +32,8 @@ Component({
     isRefresh: false, // 判断是否刷新中
     isLoadMore: false, // 判断是否正在加载更多
     isHasMore: false, // 是否有更多数据
-    pullHeight: 0, // 拉动的高度
-    pullStatus: STATUS.normal, // 参见 {@link STATUS}
+    pullHeight: 60, // 拉动的高度
+    pullStatus: STATUS.refreshing, // 参见 {@link STATUS}
     scrollTop: 0, // 滚动距离顶部的高度
   },
 
@@ -142,7 +142,7 @@ Component({
             pullStatus: STATUS.normal,
             pullHeight: 0,
           });
-        }, 1000);
+        }, 220);
       }
     },
 

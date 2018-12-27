@@ -104,7 +104,7 @@ Page({
             talk: res.data,
             isRefreshFinish: true
           })
-        }, 2000);
+        }, 1500);
       },
       fail() {
         self.setData({
