@@ -1,8 +1,8 @@
 {
   "pages": [
+    "pages/setting/setting",
     "pages/index/index",
-    "pages/share/share",
-    "pages/setting/setting"
+    "pages/share/share"
   ],
   "window": {
     "backgroundColor": "#fff",
