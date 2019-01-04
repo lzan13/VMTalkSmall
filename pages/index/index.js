@@ -22,7 +22,7 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      scrollHeight: app.common.wHeight - app.common.navHeight
+      scrollHeight: app.data.dimen.wHeight - app.data.dimen.navHeight
     })
 
   },

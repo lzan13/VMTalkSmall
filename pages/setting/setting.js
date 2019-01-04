@@ -10,55 +10,61 @@ Page({
   data: {
     sbHeight: 0,
     navHeight: 0,
-    objectArray: [{
-        id: '0',
+    hitokotoType: {},
+    hitokotoTypes: [{
+        type: '0',
         name: '随机'
       }, {
-        id: 'a',
+        type: 'a',
         name: '动画'
       },
       {
-        id: 'b',
+        type: 'b',
         name: '漫画'
       },
       {
-        id: 'c',
+        type: 'c',
         name: '游戏'
       },
       {
-        id: 'd',
+        type: 'd',
         name: '小说'
       },
       {
-        id: 'e',
+        type: 'e',
         name: '原创'
       },
       {
-        id: 'f',
+        type: 'f',
         name: '网络'
       },
       {
-        id: 'g',
+        type: 'g',
         name: '其他'
       }
     ],
-    index: 0,
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    let self = this;
     this.setData({
-      sbHeight: app.common.sbHeight,
-      navHeight: app.common.navHeight
+      sbHeight: app.data.dimen.sbHeight,
+      navHeight: app.data.dimen.navHeight,
+      hitokotoType: app.data.setting.hitokotoType
     });
   },
 
+  /**
+   * 选择器改变
+   */
   bindPickerChange(e) {
+    let selectType = this.data.hitokotoTypes[e.detail.value];
+    app.data.setting.hitokotoType = selectType;
+    wx.setStorageSync("hitokoto_type", selectType)
     this.setData({
-      index: e.detail.value
+      hitokotoType: selectType
     })
   },
 
