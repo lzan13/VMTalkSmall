@@ -9,8 +9,8 @@ Page({
    * 页面的初始数据
    */
   data: {
-    scrollHeight: 0,
     isRefreshFinish: false,
+    scrollHeight: 0,
     talk: {
       hitokoto: "慢慢来，一步一个脚印！",
       from: "『 lzan13 』"
@@ -22,9 +22,9 @@ Page({
    */
   onLoad: function(options) {
     this.setData({
-      scrollHeight: app.data.dimen.wHeight - app.data.dimen.navHeight
+      scrollHeight: app.data.dimen.wHeight - app.data.dimen.navHeight,
+      typeIndex: app.data.setting.typeIndex
     })
-
   },
 
   /**
@@ -75,7 +75,7 @@ Page({
   /**
    * 长按事件
    */
-  onCancel:function(){
+  onCancel: function() {
     wx.navigateTo({
       url: '../share/share'
     })
@@ -93,10 +93,12 @@ Page({
    */
   requestTalk: function() {
     let self = this;
+    let index = app.data.setting.typeIndex;
+    let type = app.data.setting.typeArray[index];
     wx.request({
       url: 'https://v1.hitokoto.cn',
       data: {
-        c: 'a',
+        c: type.type,
         encode: 'json',
         charset: 'utf-8'
       },

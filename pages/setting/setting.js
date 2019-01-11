@@ -10,39 +10,8 @@ Page({
   data: {
     sbHeight: 0,
     navHeight: 0,
-    hitokotoType: {},
-    hitokotoTypes: [{
-        type: '0',
-        name: '随机'
-      }, {
-        type: 'a',
-        name: '动画'
-      },
-      {
-        type: 'b',
-        name: '漫画'
-      },
-      {
-        type: 'c',
-        name: '游戏'
-      },
-      {
-        type: 'd',
-        name: '小说'
-      },
-      {
-        type: 'e',
-        name: '原创'
-      },
-      {
-        type: 'f',
-        name: '网络'
-      },
-      {
-        type: 'g',
-        name: '其他'
-      }
-    ],
+    typeIndex: 0,
+    typeArray: []
   },
 
   /**
@@ -52,7 +21,8 @@ Page({
     this.setData({
       sbHeight: app.data.dimen.sbHeight,
       navHeight: app.data.dimen.navHeight,
-      hitokotoType: app.data.setting.hitokotoType
+      typeIndex: app.data.setting.typeIndex,
+      typeArray: app.data.setting.typeArray
     });
   },
 
@@ -60,11 +30,11 @@ Page({
    * 选择器改变
    */
   bindPickerChange(e) {
-    let selectType = this.data.hitokotoTypes[e.detail.value];
-    app.data.setting.hitokotoType = selectType;
-    wx.setStorageSync("hitokoto_type", selectType)
+    let index = e.detail.value;
+    app.data.setting.typeIndex = index;
+    wx.setStorageSync("key_type_index", index)
     this.setData({
-      hitokotoType: selectType
+      typeIndex: index
     })
   },
 

@@ -6,10 +6,10 @@
   <!-- 列表项 -->
   <view class="weui-cells__title">小程序设置</view>
   <view class="weui-cells weui-cells_after-title">
-    <picker bindchange="bindPickerChange" value="{{hitokotoType}}" range="{{hitokotoTypes}}" range-key="name">
+    <picker bindchange="bindPickerChange" value="{{typeIndex}}" range="{{typeArray}}" range-key="name">
       <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__bd">一言分类</view>
-        <view class="weui-cell__ft weui-cell__ft_in-access">{{hitokotoType.name}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access">{{typeArray[typeIndex].name}}</view>
       </view>
     </picker>
   </view>

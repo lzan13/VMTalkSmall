@@ -20,6 +20,6 @@
   </refresh>
   <!-- 控制界面 -->
   <view class="control-container" bindtap="onCancel">
-    <image class="control-setting" src="../../public/image/ic_avatar.svg" bindtap="onSetting"></image>
+    <image class="control-setting" src="../../public/image/ic_add.svg" bindtap="onSetting"></image>
   </view>
 </view>
