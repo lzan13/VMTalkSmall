@@ -1,7 +1,14 @@
 /* pages/me/me.wxss */
 
-.test-color {
-  height: 144rpx;
-  line-height: 144rpx;
-  text-align: center;
+.vm-btn-contact, .vm-btn-share {
+  display: inline-block;
+  position: absolute;
+  left: 0px;
+  width: 100%;
+  background: #e8e8e8;
+  opacity: 0;
+}
+
+.weui-footer {
+  margin-bottom: 16px;
 }

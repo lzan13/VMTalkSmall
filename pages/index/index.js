@@ -13,7 +13,7 @@ Page({
     isRefreshFinish: false,
     talk: {
       hitokoto: "慢慢来，一步一个脚印！",
-      from: "lzan13"
+      from: "『 lzan13 』"
     }
   },
 
@@ -66,14 +66,20 @@ Page({
    * 触发下拉刷新
    */
   onRefresh: function() {
-    vlog.i("触发下拉刷新");
     this.setData({
       isRefreshFinish: false
     });
     // 请求数据
     this.requestTalk();
   },
-
+  /**
+   * 长按事件
+   */
+  onCancel:function(){
+    wx.navigateTo({
+      url: '../share/share'
+    })
+  },
   /**
    * 跳转到设置界面
    */

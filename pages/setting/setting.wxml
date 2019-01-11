@@ -4,27 +4,37 @@
     <nav enableBack="true" navTitle="设置" sbHeight="{{sbHeight}}"></nav>
   </view>
   <!-- 列表项 -->
-  <view class="weui-cells__title">带跳转的列表项</view>
-  <view class="weui-cells weui-cells_after-title">
-    <navigator url="feedback" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <!-- <button class="weui-cell__bd" open-type="feedback">意见反馈</button> -->
-      <view class="weui-cell__bd">意见反馈</view>
-      <!-- <view class="weui-cell__ft weui-cell__ft_in-access"></view> -->
-    </navigator>
-  </view>
-
-  <view class="weui-cells__title">带说明、跳转的列表项</view>
+  <view class="weui-cells__title">小程序设置</view>
   <view class="weui-cells weui-cells_after-title">
     <picker bindchange="bindPickerChange" value="{{hitokotoType}}" range="{{hitokotoTypes}}" range-key="name">
-      <view url="" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
         <view class="weui-cell__bd">一言分类</view>
         <view class="weui-cell__ft weui-cell__ft_in-access">{{hitokotoType.name}}</view>
       </view>
     </picker>
   </view>
 
+  <!-- 其他设置 -->
+  <view class="weui-cells__title">其他</view>
+  <view class="weui-cells weui-cells_after-title">
+    <!-- 联系客服 -->
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">联系我们</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      <button class="vm-btn-contact" open-type="contact">联系我们</button>
+    </view>
+    <!-- 分享 -->
+    <!-- <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+      <view class="weui-cell__bd">分享给好友</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      <button class="vm-btn-share" open-type="share">分享给好友</button>
+    </view> -->
+  </view>
 
 
+
+
+  <!-- 底部 -->
   <view class="weui-footer weui-footer_fixed-bottom">
     <view class="weui-footer__text">Copyright © 2018 vmloft.com</view>
   </view>
