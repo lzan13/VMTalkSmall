@@ -29,6 +29,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    animation: {},
     isRefresh: false, // 判断是否刷新中
     isLoadMore: false, // 判断是否正在加载更多
     isHasMore: false, // 是否有更多数据
@@ -36,17 +37,24 @@ Component({
     pullStatus: STATUS.normal, // 参见 {@link STATUS}
     scrollTop: 0, // 滚动距离顶部的高度
   },
+  /**
+   * 组件生命周期方法
+   */
+  ready: function() {
+    this.animation = wx.createAnimation({
+      duration: 1000,
+      timingFunction: "ease"
+    });
 
+    this.setData({
+      pullStatus: STATUS.normal,
+      pullHeight: 0,
+    });
+  },
   /**
    * 组件的方法列表
    */
   methods: {
-    ready: function() {
-      this.setData({
-        pullStatus: STATUS.normal,
-        pullHeight: 0,
-      });
-    },
     /**
      * 滚动到顶部
      */
@@ -66,8 +74,7 @@ Component({
     /**
      * 滚动到底部
      */
-    _onScrollBottom: function(e) {
-    },
+    _onScrollBottom: function(e) {},
     /**
      * 触摸开始
      */
@@ -94,7 +101,7 @@ Component({
           pullDistance = 0;
           this.firstData.top = distance;
         }
-        var height = this.easing(e.touches[0], pullDistance);
+        var height = this.easing(pullDistance);
         this.setData({
           pullStatus: height > 0 ? STATUS.pulling : STATUS.normal,
           pullHeight: height,
@@ -105,20 +112,41 @@ Component({
      * 触摸结束
      */
     _onTouchEnd: function(e) {
+
       if (!this.canRefresh()) {
         return;
       }
-      if (this.data.pullHeight > 50) {
+      if (this.data.pullHeight > 100) {
+        this.animTranslate(0, 100 - this.data.pullHeight, 200);
         this.setData({
-          pullStatus: STATUS.refreshing,
-          pullHeight: 50,
-        })
-        this.triggerEvent("onRefresh");
-      } else {
-        this.setData({
-          pullStatus: STATUS.normal,
-          pullHeight: 0,
+          animation: this.animation.export(),
         });
+        // 动画执行完成，重置状态
+        setTimeout(() => {
+          this.animTranslate(0, 0, 5);
+          this.setData({
+            animation: this.animation.export(),
+          });
+          this.setData({
+            pullStatus: STATUS.refreshing,
+            pullHeight: 100,
+          });
+          this.triggerEvent("onRefresh");
+        }, 210);
+      } else {
+        this.animTranslate(0, -this.data.pullHeight, 200);
+        this.setData({
+          animation: this.animation.export(),
+        });
+        // 动画执行完成，重置状态
+        setTimeout(() => {
+          this.animTranslate(0, 0, 5);
+          this.setData({
+            animation: this.animation.export(),
+            pullStatus: STATUS.normal,
+            pullHeight: 0,
+          });
+        }, 210);
       }
     },
     /**
@@ -129,15 +157,30 @@ Component({
         this.setData({
           pullStatus: STATUS.finish
         });
+        this.animTranslate(0, -this.data.pullHeight, 200);
+        this.setData({
+          animation: this.animation.export(),
+        });
+        // 动画执行完成，重置状态
         setTimeout(() => {
+          this.animTranslate(0, 0, 5);
           this.setData({
+            animation: this.animation.export(),
             pullStatus: STATUS.normal,
             pullHeight: 0,
           });
-        }, 220);
+        }, 210);
       }
     },
 
+    /**
+     * 平移动画
+     */
+    animTranslate: function(x, y, time) {
+      this.animation.translate(x, y).step({
+        duration: time
+      })
+    },
 
     /**
      * 判断是否能够刷新
@@ -156,9 +199,9 @@ Component({
     /**
      * 计算下拉高度
      */
-    easing: function(y, distance) {
-      distance = distance > 280 ? 280 : distance;
-      return Math.exp(-distance / 280) * distance;
+    easing: function(distance) {
+      // 阻尼公式 -1 / 1500x ^ 2 + 0.6x
+      return -1 /1500 * distance * distance + 0.6 * distance;
     }
   }
 })
