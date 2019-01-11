@@ -1,8 +1,10 @@
 <!--components/nav/nav.wxml-->
 <view class="nav-container">
-  <view class="nav-statusbar" style="height:{{sbHeight}}px"></view>
+  <view class="nav-statusbar" style="height:{{sbHeight}}px;"></view>
   <view class="nav-toolbar weui-flex">
-    <image class="nav-icon" wx:if="{{enableBack}}" bindtap="_onBack" src="../../../public/image/ic_back.svg" />
+    <view class="nav-back" wx:if="{{enableBack}}" bindtap="_onBack">
+      <view class="nav-back-icon"></view>
+    </view>
     <view class="nav-space" wx:else></view>
     <view class="weui-flex__item">
       <view class="nav-title">{{navTitle}}</view>
