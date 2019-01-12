@@ -9,7 +9,7 @@
   position: fixed;
   width: 100%;
   text-align: center;
-  z-index: 888;
+  z-index: 99;
 }
 
 .refresh-status {

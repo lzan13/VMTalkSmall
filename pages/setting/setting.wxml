@@ -23,15 +23,12 @@
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
       <button class="vm-btn-contact" open-type="contact">联系我们</button>
     </view>
-    <!-- 分享 -->
-    <!-- <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-      <view class="weui-cell__bd">分享给好友</view>
+    <!-- 关于 -->
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="openAbout">
+      <view class="weui-cell__bd">关于</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      <button class="vm-btn-share" open-type="share">分享给好友</button>
-    </view> -->
+    </view>
   </view>
-
-
 
 
   <!-- 底部 -->

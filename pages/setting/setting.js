@@ -38,4 +38,17 @@ Page({
     })
   },
 
+  /**
+   * 打开关于弹窗
+   */
+  openAbout: function () {
+    wx.showModal({
+      content: "VMTalk，每日为大家提供一句经典话语功能，后期会有每日精选图等 \n\n 自己的第一个小程序，希望大家喜欢 😁 ",
+      showCancel: false,
+      success: function (res) {
+        
+      }
+    });
+  }
+
 })

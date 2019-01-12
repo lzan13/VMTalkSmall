@@ -73,14 +73,6 @@ Page({
     this.requestTalk();
   },
   /**
-   * 长按事件
-   */
-  onCancel: function() {
-    wx.navigateTo({
-      url: '../share/share'
-    })
-  },
-  /**
    * 跳转到设置界面
    */
   onSetting: function() {
