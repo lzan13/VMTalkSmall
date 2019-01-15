@@ -116,8 +116,8 @@ Component({
       if (!this.canRefresh()) {
         return;
       }
-      if (this.data.pullHeight > 100) {
-        this.animTranslate(0, 100 - this.data.pullHeight, 200);
+      if (this.data.pullHeight > 70) {
+        this.animTranslate(0, 70 - this.data.pullHeight, 200);
         this.setData({
           animation: this.animation.export(),
         });
@@ -129,7 +129,7 @@ Component({
           });
           this.setData({
             pullStatus: STATUS.refreshing,
-            pullHeight: 100,
+            pullHeight: 70,
           });
           this.triggerEvent("onRefresh");
         }, 210);

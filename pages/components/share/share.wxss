@@ -1,0 +1,67 @@
+/* pages/demo/share/share/share.wxss */
+
+.vm-share {
+  position: fixed;
+  width: 100%;
+  z-index: 100;
+}
+
+.vm-share-canvas {
+  position: fixed;
+  top: 0;
+  left: 999px;
+  width: 100%;
+}
+
+.vm-share-content {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.vm-share-image {
+  border-radius: 4px;
+  margin: 0 auto;
+}
+
+/* 底部按钮容器 */
+
+.vm-btn-container {
+  position: fixed;
+  width: 100%;
+  bottom: 24px;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.vm-btn-save-share, .vm-btn-close-share {
+  padding-top: 8px;
+  padding-right: 24px;
+  padding-bottom: 8px;
+  padding-left: 24px;
+  margin: 8px;
+  border-radius: 24px;
+  color: #f8f8f8;
+}
+
+.vm-btn-save-share {
+  background: #30ba20;
+}
+
+.vm-btn-close-share {
+  background: #a8a8a8;
+}
+
+.vm-btn-save-share:active {
+  background: #36aa20;
+}
+
+.vm-btn-close-share:active {
+  background: #898989;
+}

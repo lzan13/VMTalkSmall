@@ -20,6 +20,10 @@
   </refresh>
   <!-- 控制界面 -->
   <view class="control-container">
-    <image class="control-setting" src="../../public/image/ic_add.svg" bindtap="onSetting"></image>
+    <image class="control-icon icon-setting" src="../../public/image/ic_add.svg" bindtap="onSetting"></image>
+    <image class="control-icon icon-share" src="../../public/image/ic_share.svg" bindtap="onShare"></image>
   </view>
+
+  <!-- 自定义分享组件 -->
+  <share create="{{share.create}}" content="{{share.content}}" from="{{share.from}}"></share>
 </view>

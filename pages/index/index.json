@@ -3,6 +3,11 @@
   "navigationStyle": "custom",
   "usingComponents": {
     "nav": "../components/nav/nav",
-    "refresh": "../components/refresh/refresh"
+    "refresh": "../components/refresh/refresh",
+    "share": "../components/share/share"
   }
 }
+
+
+
+  
