@@ -1,7 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp();
-const util = require('../../utils/util.js');
+const vutil = require('../../utils/vmutil.js');
 const vlog = require('../../utils/vmlog.js');
 
 Page({
@@ -85,7 +85,7 @@ Page({
         'content-type': 'application/json' // 默认值
       },
       success(res) {
-        res.data.from = util.formatStr("『 {from} 』", res.data);
+        res.data.from = vutil.formatStr("『 {from} 』", res.data);
         self.setData({
           talk: res.data,
           isRefreshFinish: true

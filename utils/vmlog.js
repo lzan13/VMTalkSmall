@@ -1,10 +1,10 @@
-const util = require("./util.js");
+const vutil = require("./vmutil.js");
 
 /**
  * 格式化日志输出
  */
 const i = function() {
-  console.log(util.formatStr(arguments));
+  console.log(vutil.formatStr(arguments));
 }
 
 module.exports = {
