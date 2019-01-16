@@ -6,12 +6,18 @@
   <!-- 列表项 -->
   <view class="weui-cells__title">小程序设置</view>
   <view class="weui-cells weui-cells_after-title">
+    <!-- 分类选择器 -->
     <picker bindchange="bindPickerChange" value="{{typeIndex}}" range="{{typeArray}}" range-key="name">
       <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
-        <view class="weui-cell__bd">一言分类</view>
+        <view class="weui-cell__bd">分类</view>
         <view class="weui-cell__ft weui-cell__ft_in-access">{{typeArray[typeIndex].name}}</view>
       </view>
     </picker>
+    <!-- 是否显示出处 -->
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="showFrom">
+      <view class="weui-cell__bd">显示出处</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">{{showFrom ? '是' : '否'}}</view>
+    </view>
   </view>
 
   <!-- 其他设置 -->

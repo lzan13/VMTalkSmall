@@ -16,6 +16,7 @@ App({
       wHeight: 667, // 这个是以 375*667 为基准进行预设
     },
     setting: {
+      showFrom: true,
       typeIndex: 0,
       typeArray: [{
           type: '0',
@@ -56,7 +57,8 @@ App({
     /**
      * 展示本地存储能力
      */
-    this.data.setting.typeIndex = wx.getStorageSync('key_type_index') || 0;
+    this.data.setting.typeIndex = wx.getStorageSync("key_type_index") || 0;
+    this.data.setting.showFrom = wx.getStorageSync("key_show_from");
 
     /**
      * 获取手机系统信息

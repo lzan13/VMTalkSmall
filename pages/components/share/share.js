@@ -52,14 +52,14 @@ Component({
       },
     })
     this.details = {
-      x: 24,
+      x: wWidth / 2,
       y: wHeight / 2,
-      width: wWidth - 48,
+      width: wWidth - 64,
       height: 24,
       line: 30,
       color: "#363636",
       size: 18,
-      align: "left",
+      align: "center",
       baseline: "top",
       text: this.data.content,
       bold: true
@@ -119,6 +119,9 @@ Component({
      * 绘制 from 文本
      */
     _drawFrom: function() {
+      if (this.data.from === "") {
+        return;
+      }
       this.ctx.save();
       this.ctx.setFillStyle("#363636");
       this.ctx.setFontSize(14);
@@ -207,19 +210,21 @@ Component({
      */
     _createImageFromCanvas: function() {
       var that = this;
-      wx.canvasToTempFilePath({
-        canvasId: "shareCanvas",
-        success: function(res) {
-          console.log(res.tempFilePath);
-          that.setData({
-            shareImagePath: res.tempFilePath,
-            isShow: true
-          })
-        },
-        complete: function() {
-          that._hideLoading();
-        }
-      }, this);
+      setTimeout(() => {
+        wx.canvasToTempFilePath({
+          canvasId: "shareCanvas",
+          success: function(res) {
+            console.log(res.tempFilePath);
+            that.setData({
+              shareImagePath: res.tempFilePath,
+              isShow: true
+            })
+          },
+          complete: function() {
+            that._hideLoading();
+          }
+        }, this);
+      }, 500);
     },
 
     /**

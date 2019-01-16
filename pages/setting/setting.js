@@ -10,6 +10,7 @@ Page({
   data: {
     sbHeight: 0,
     navHeight: 0,
+    showFrom: true,
     typeIndex: 0,
     typeArray: []
   },
@@ -21,6 +22,7 @@ Page({
     this.setData({
       sbHeight: app.data.dimen.sbHeight,
       navHeight: app.data.dimen.navHeight,
+      showFrom: app.data.setting.showFrom,
       typeIndex: app.data.setting.typeIndex,
       typeArray: app.data.setting.typeArray
     });
@@ -39,14 +41,25 @@ Page({
   },
 
   /**
+   * 显示出处开关
+   */
+  showFrom: function() {
+    let show = !this.data.showFrom;
+    app.data.setting.showFrom = show;
+    wx.setStorageSync("key_show_from", show)
+    this.setData({
+      showFrom: show
+    })
+  },
+  /**
    * 打开关于弹窗
    */
-  openAbout: function () {
+  openAbout: function() {
     wx.showModal({
-      content: "VMTalk，每日为大家提供一句经典话语功能，后期会有每日精选图等 \n\n 自己的第一个小程序，希望大家喜欢 😁 ",
+      content: "VMTalk，每日为大家提供一句经典话语功能，后期会有每日精选图等 \n\n 自己的第一个小程序，希望大家喜欢 😁 \n\n 记得联系我 ",
       showCancel: false,
-      success: function (res) {
-        
+      success: function(res) {
+
       }
     });
   }

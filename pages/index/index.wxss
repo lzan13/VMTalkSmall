@@ -14,12 +14,12 @@
   display: flex;
   flex-direction: column;
   align-items: right;
-  padding: 12px;
+  padding: 16px;
 }
 
 .talk-quote-top, .talk-quote-bottom {
-  width: 12px;
-  height: 12px;
+  width: 16px;
+  height: 16px;
   margin-top: 4px;
   margin-bottom: 4px;
 }
@@ -46,13 +46,14 @@
   font-weight: bold;
   margin-left: 16px;
   margin-right: 16px;
+  text-align: center;
 }
 
 /* 出处  */
 
 .talk-from-container {
   position: fixed;
-  bottom: 56px;
+  bottom: 48px;
   width: 100%;
   justify-content: center;
   background: bisque;
@@ -67,17 +68,25 @@
 
 /* 控制部分 */
 
-.control-container {
-  position: fixed;
-  display: block;
-  bottom: 16px;
-  right: 16px;
-}
-
 .control-icon {
-  width: 20px;
-  height: 20px;
+  width: 24px;
+  height: 24px;
   padding: 8px;
   border-radius: 50%;
   background: #e8e8e8;
+}
+.control-icon:active{
+  background: #d8d8d8;
+}
+
+.icon-share {
+  position: fixed;
+  bottom: 16px;
+  left: 16px;
+}
+
+.icon-setting {
+  position: fixed;
+  right: 16px;
+  bottom: 16px;
 }

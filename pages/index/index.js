@@ -11,6 +11,7 @@ Page({
   data: {
     isRefreshFinish: false,
     scrollHeight: 0,
+    showFrom: true,
     talk: {
       hitokoto: "慢慢来，一步一个脚印！",
       from: "『 lzan13 』"
@@ -40,33 +41,64 @@ Page({
   },
 
   /**
+   * 生命周期函数--页面显示/切入前台时触发。
+   */
+  onShow: function() {
+    this.setData({
+      showFrom: app.data.setting.showFrom,
+    });
+  },
+
+  /**
    * 触发下拉刷新
    */
-  onRefresh: function() {
+  handleRefresh: function() {
     this.setData({
       isRefreshFinish: false
     });
     // 请求数据
     this.requestTalk();
   },
+
   /**
    * 跳转到设置界面
    */
-  onSetting: function() {
+  handleSetting: function() {
     wx.navigateTo({
       url: '../setting/setting'
     })
   },
-  
-  onShare: function() {
+
+  /**
+   * 触发复制
+   */
+  handleCopy: function() {
+    let that = this;
+    wx.setClipboardData({
+      data: that.data.talk.hitokoto,
+      success: function(res) {
+        wx.showToast({
+          title: "✌️ 复制成功 😁 ",
+          icon: "succes",
+          duration: 2000
+        })
+      }
+    });
+  },
+
+  /**
+   * 触发分享
+   */
+  handleShare: function() {
     this.setData({
       share: {
         create: true,
         content: this.data.talk.hitokoto,
-        from: this.data.talk.from
+        from: this.data.showFrom ? this.data.talk.from : ""
       }
     });
   },
+
   /**
    * 请求一句话
    */
