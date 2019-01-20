@@ -10,7 +10,10 @@ Page({
   data: {
     sbHeight: 0,
     navHeight: 0,
+    showThemeDialog: false,
     showFrom: true,
+    themeIndex: 0,
+    themeArray: [],
     typeIndex: 0,
     typeArray: []
   },
@@ -24,7 +27,9 @@ Page({
       navHeight: app.data.dimen.navHeight,
       showFrom: app.data.setting.showFrom,
       typeIndex: app.data.setting.typeIndex,
-      typeArray: app.data.setting.typeArray
+      typeArray: app.data.setting.typeArray,
+      themeIndex: app.data.setting.themeIndex,
+      themeArray: app.data.setting.themeArray
     });
   },
 
@@ -37,6 +42,27 @@ Page({
     wx.setStorageSync("key_type_index", index)
     this.setData({
       typeIndex: index
+    })
+  },
+
+  /**
+   * 选择主题
+   */
+  themeDialog: function() {
+    this.setData({
+      showThemeDialog: true
+    });
+  },
+
+  /**
+   * 选择主题
+   */
+  selectTheme: function(e) {
+    let index = e.target.dataset.id;
+    app.data.setting.themeIndex = index;
+    wx.setStorageSync("key_theme_index", index)
+    this.setData({
+      themeIndex: index
     })
   },
 

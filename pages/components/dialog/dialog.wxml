@@ -1,0 +1,7 @@
+<!--pages/components/dialog/dialog.wxml-->
+<view wx:if="{{isShow}}" class="vm-dialog-container" bindtap="_hideDialog">
+  <view class="vm-dialog">
+    <text wx:if="{{title.length>0}}" class="vm-dialog-title">{{title}}</text>
+    <slot></slot>
+  </view>
+</view>

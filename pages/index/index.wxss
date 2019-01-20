@@ -38,7 +38,6 @@
 .talk-decoration {
   width: 100%;
   height: 1px;
-  background: #d8d8d8;
 }
 
 .talk-hitokoto {
@@ -49,7 +48,7 @@
   text-align: center;
 }
 
-/* 出处  */
+/* 出处 */
 
 .talk-from-container {
   position: fixed;
@@ -73,10 +72,10 @@
   height: 24px;
   padding: 8px;
   border-radius: 50%;
-  background: #e8e8e8;
+  background: #f8f8f8;
 }
 .control-icon:active{
-  background: #d8d8d8;
+  background: #e8e8e8;
 }
 
 .icon-share {

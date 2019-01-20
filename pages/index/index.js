@@ -12,6 +12,7 @@ Page({
     isRefreshFinish: false,
     scrollHeight: 0,
     showFrom: true,
+    theme: {},
     talk: {
       hitokoto: "慢慢来，一步一个脚印！",
       from: "『 lzan13 』"
@@ -29,7 +30,6 @@ Page({
   onLoad: function(options) {
     this.setData({
       scrollHeight: app.data.dimen.wHeight - app.data.dimen.navHeight,
-      typeIndex: app.data.setting.typeIndex,
     })
   },
 
@@ -46,6 +46,7 @@ Page({
   onShow: function() {
     this.setData({
       showFrom: app.data.setting.showFrom,
+      theme: app.data.setting.themeArray[app.data.setting.themeIndex]
     });
   },
 

@@ -13,6 +13,14 @@
         <view class="weui-cell__ft weui-cell__ft_in-access">{{typeArray[typeIndex].name}}</view>
       </view>
     </picker>
+    <!-- 主题颜色 -->
+    <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="themeDialog">
+      <view class="weui-cell__bd">主题颜色</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access">
+        <view class="theme-color" style="background:{{themeArray[themeIndex].cover}};"></view>
+      </view>
+    </view>
+
     <!-- 是否显示出处 -->
     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="showFrom">
       <view class="weui-cell__bd">显示出处</view>
@@ -27,7 +35,7 @@
     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active">
       <view class="weui-cell__bd">联系我们</view>
       <view class="weui-cell__ft weui-cell__ft_in-access"></view>
-      <button class="vm-btn-contact" open-type="contact">联系我们</button>
+      <button class="btn-contact" open-type="contact">联系我们</button>
     </view>
     <!-- 关于 -->
     <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" bindtap="openAbout">
@@ -36,9 +44,16 @@
     </view>
   </view>
 
-
   <!-- 底部 -->
   <view class="weui-footer weui-footer_fixed-bottom">
     <view class="weui-footer__text">Copyright © 2018 vmloft.com</view>
   </view>
+
+
+  <!-- 主题颜色选择 -->
+  <dialog isShow="{{showThemeDialog}}">
+    <view class="theme-container">
+      <view wx:for="{{themeArray}}" wx:key="id" class="theme-{{item.id===themeIndex?'select':'normal'}}" catchtap="selectTheme" style="background:{{item.cover}};" data-id="{{item.id}}" bindtap="selectTheme"></view>
+    </view>
+  </dialog>
 </view>

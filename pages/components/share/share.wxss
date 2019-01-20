@@ -65,3 +65,10 @@
 .vm-btn-close-share:active {
   background: #898989;
 }
+
+
+.vm-share-theme{
+  width: 24px;
+  height: 24px;
+  border-radius: 24px;
+}

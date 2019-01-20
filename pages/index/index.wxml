@@ -3,18 +3,18 @@
 <view class="page">
   <!-- 一句话 -->
   <refresh scrollHeight="{{scrollHeight}}" isRefreshFinish="{{isRefreshFinish}}" bindonRefresh="handleRefresh">
-    <view class="talk-container">
+    <view class="talk-container" style="background:{{theme.cover}};">
       <view class="talk-hitokoto-container">
-        <view class="talk-decoration" />
-        <image class="talk-quote-top" src="../../public/image/ic_quote.svg" />
-        <text class="talk-hitokoto" bindlongtap="handleCopy">{{talk.hitokoto}}</text>
-        <view class="talk-quote-bottom-container">
-          <image class="talk-quote-bottom" src="../../public/image/ic_quote.svg" />
-        </view>
-        <view class="talk-decoration" />
+        <!-- <view class="talk-decoration" /> -->
+        <!-- <image class="talk-quote-top" src="../../public/image/ic_quote.svg" /> -->
+        <text class="talk-hitokoto" bindlongtap="handleCopy" style="color:{{theme.text}};">{{talk.hitokoto}}</text>
+        <!-- <view class="talk-quote-bottom-container"> -->
+          <!-- <image class="talk-quote-bottom" src="../../public/image/ic_quote.svg" /> -->
+        <!-- </view> -->
+        <!-- <view class="talk-decoration" /> -->
       </view>
       <view class="talk-from-container">
-        <text wx:if="{{showFrom}}" class="talk-from">{{talk.from}}</text>
+        <text wx:if="{{showFrom}}" class="talk-from" style="color:{{theme.text}};">{{talk.from}}</text>
       </view>
     </view>
   </refresh>
@@ -25,5 +25,5 @@
   </view>
 
   <!-- 自定义分享组件 -->
-  <share create="{{share.create}}" content="{{share.content}}" from="{{share.from}}"></share>
+  <share create="{{share.create}}" content="{{share.content}}" from="{{share.from}}" textColor="{{theme.text}}" coverColor="{{theme.cover}}"></share>
 </view>

@@ -1,6 +1,6 @@
 /* pages/me/me.wxss */
 
-.vm-btn-contact, .vm-btn-share {
+.btn-contact {
   display: inline-block;
   position: absolute;
   left: 0px;
@@ -9,6 +9,36 @@
   opacity: 0;
 }
 
+/* 底部 */
+
 .weui-footer {
   margin-bottom: 16px;
+}
+
+.theme-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.theme-color {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  border: 1px solid #d8d8d8;
+}
+
+.theme-normal {
+  width: 36px;
+  height: 36px;
+  margin: 4px;
+  border-radius: 50%;
+  border: 1px solid #d8d8d8;
+}
+
+.theme-select {
+  width: 24px;
+  height: 24px;
+  margin: 10px;
+  border: 1px solid #d8d8d8;
+  border-radius: 50%;
 }

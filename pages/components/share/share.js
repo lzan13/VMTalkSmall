@@ -21,6 +21,14 @@ Component({
     from: {
       type: String,
       value: "『 lzan13 』"
+    },
+    textColor: {
+      type: String,
+      value: "#363636"
+    },
+    coverColor: {
+      type: String,
+      value: "#ffffff"
     }
   },
 
@@ -31,7 +39,7 @@ Component({
     isShow: false,
     cWidth: 0,
     cHeight: 0,
-    shareImagePath: null,
+    shareImagePath: null
   },
 
   /**
@@ -57,7 +65,7 @@ Component({
       width: wWidth - 64,
       height: 24,
       line: 30,
-      color: "#363636",
+      color: this.data.textColor,
       size: 18,
       align: "center",
       baseline: "top",
@@ -110,7 +118,7 @@ Component({
      */
     _drawBackground: function() {
       this.ctx.save();
-      this.ctx.setFillStyle("#f8f8f8");
+      this.ctx.setFillStyle(this.data.coverColor);
       this.ctx.fillRect(0, 0, wWidth, wHeight);
       this.ctx.restore();
     },
@@ -123,7 +131,7 @@ Component({
         return;
       }
       this.ctx.save();
-      this.ctx.setFillStyle("#363636");
+      this.ctx.setFillStyle(this.data.textColor);
       this.ctx.setFontSize(14);
       this.ctx.setTextAlign("center");
       this.ctx.fillText(this.data.from, wWidth / 2, wHeight - 48);
@@ -144,7 +152,7 @@ Component({
           let txt = {
             x: obj.x,
             y: obj.y - (lines / 2 * obj.height) + (i * obj.height),
-            color: obj.color,
+            color: this.data.textColor,
             size: obj.size,
             align: obj.align,
             baseline: obj.baseline,
@@ -224,7 +232,7 @@ Component({
             that._hideLoading();
           }
         }, this);
-      }, 500);
+      }, 100);
     },
 
     /**

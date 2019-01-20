@@ -17,6 +17,34 @@ App({
     },
     setting: {
       showFrom: true,
+      themeIndex: 0,
+      themeArray: [{
+          id: 0,
+          text: '#2c2a2d',
+          cover: '#ede7d1',
+        },
+        {
+          id: 1,
+          text: '#ffffff',
+          cover: '#2c2a2d'
+        }, {
+          id: 2,
+          text: "#ffffff",
+          cover: "#00a77b"
+        }, {
+          id: 3,
+          text: "#ffffff",
+          cover: "#f79798"
+        }, {
+          id: 4,
+          text: "#ffffff",
+          cover: "#ee5662"
+        }, {
+          id: 5,
+          text: "#ffffff",
+          cover: "#dbb85e"
+        }
+      ],
       typeIndex: 0,
       typeArray: [{
           type: '0',
@@ -57,6 +85,7 @@ App({
     /**
      * 展示本地存储能力
      */
+    this.data.setting.themeIndex = wx.getStorageSync("key_theme_index") || 0;
     this.data.setting.typeIndex = wx.getStorageSync("key_type_index") || 0;
     this.data.setting.showFrom = wx.getStorageSync("key_show_from");
 

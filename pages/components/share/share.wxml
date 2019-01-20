@@ -5,6 +5,7 @@
   <view wx:if="{{isShow}}" class="vm-share-content" bindtap="_closeShare" style="width:{{cWidth}}px; height:{{cHeight}}px;">
     <image class="vm-share-image" style="width:{{imageWidth}}px; height:{{imageHeight}}px;" src="{{shareImagePath}}"></image>
 
+    <!-- 按钮 -->
     <view class="vm-btn-container">
       <view class="vm-btn-save-share" bindtap="_requestAlbumScope">保存</view>
       <view class="vm-btn-close-share" bindtap="_closeShare">取消</view>
