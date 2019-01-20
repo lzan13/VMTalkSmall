@@ -82,7 +82,7 @@ Page({
    */
   openAbout: function() {
     wx.showModal({
-      content: "VMTalk，每日为大家提供一句经典话语功能，后期会有每日精选图等 \n\n 自己的第一个小程序，希望大家喜欢 😁 \n\n 记得联系我 ",
+      content: "VMTalk，一句经典话语，涵盖动画、漫画、游戏、小说、网络、原创等各种经典话语，后期会有每日精选图等 \n\n 自己的第一个小程序，希望大家喜欢 😁 \n\n 可以随时联系我 ",
       showCancel: false,
       success: function(res) {
 
