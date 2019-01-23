@@ -19,7 +19,7 @@
     </view>
   </refresh>
   <!-- 控制界面 -->
-  <view class="control-container">
+  <view class="page-control">
     <image class="control-icon icon-share" src="../../public/image/ic_share.svg" bindtap="handleShare"></image>
     <image class="control-icon icon-setting" src="../../public/image/ic_setting.svg" bindtap="handleSetting"></image>
   </view>

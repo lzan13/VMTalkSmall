@@ -116,8 +116,8 @@ Component({
       if (!this.canRefresh()) {
         return;
       }
-      if (this.data.pullHeight > 70) {
-        this.animTranslate(0, 70 - this.data.pullHeight, 200);
+      if (this.data.pullHeight > 120) {
+        this.animTranslate(0, 120 - this.data.pullHeight, 200);
         this.setData({
           animation: this.animation.export(),
         });
@@ -129,7 +129,7 @@ Component({
           });
           this.setData({
             pullStatus: STATUS.refreshing,
-            pullHeight: 70,
+            pullHeight: 120,
           });
           this.triggerEvent("onRefresh");
         }, 210);
@@ -200,8 +200,8 @@ Component({
      * 计算下拉高度
      */
     easing: function(distance) {
-      // 阻尼公式 -1 / 1500x ^ 2 + 0.6x
-      return -1 /1500 * distance * distance + 0.6 * distance;
+      // 阻尼公式 -1 / 1500x ^ 2 + 0.8x
+      return -1 /1500 * distance * distance + 0.8 * distance;
     }
   }
 })
